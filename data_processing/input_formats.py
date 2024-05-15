@@ -1,6 +1,8 @@
 from document import *
 from tqdm import tqdm
-from typing import Callable, Iterator
+from typing import Iterator
+from nltk.tokenize import sent_tokenize
+
 
 def default(path: str) -> Iterator[Document]:
     """
@@ -13,7 +15,6 @@ def default(path: str) -> Iterator[Document]:
         for line in tqdm(f):
             line = line[:-1]
             if line[:12] == "<end-of-doc>":
-                filepath = ############################################################################
                 current_document.append(current_paragraph)
                 yield current_document
                 current_paragraph = Paragraph([])
@@ -44,7 +45,7 @@ def onion(path: str) -> Iterator[Document]:
             if line[:4] == "<doc":
                 _, id_, filepath = line.split(' ')
                 filepath = filepath.split('\"')[1]
-                current_document = Document([], filepath = filepath)
+                current_document = Document([], filepath=filepath)
             elif line == '<p>':
                 current_paragraph = Paragraph([])
             elif line == '</p>':

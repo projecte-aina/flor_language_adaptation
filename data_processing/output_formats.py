@@ -5,6 +5,7 @@ from typing import IO
 def onion(
         document: Document,
         output_file: IO,
+        i: int = None,
         ) -> None:
     output_file.write(f'<doc id={i} filename="{document.filepath}">\n')
     for paragraph in document:
@@ -19,11 +20,13 @@ def onion(
         output_file.write("</p>\n")
     output_file.write("</doc>\n")
 
+
 def default(
         document: Document,
         output_file: IO,
+        i: int = None,
         ) -> None:
-    for j, paragraph in enumerate(document):
+    for paragraph in document:
         for sentence in paragraph:
             output_file.write(sentence + " ")
             output_file.write('\n')

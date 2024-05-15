@@ -1,0 +1,9 @@
+This is the first document. 
+This is just an example. 
+No meaningful text. 
+
+<end-of-doc> filename="None"
+Random text go. 
+Next example will be a repetition of the first, to test deduplication! 
+
+<end-of-doc> filename="data/dummy/dummy.txt"

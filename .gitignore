@@ -2,3 +2,5 @@ logs/
 !.gitignore
 cache/
 evaluation/
+__pycache__/
+data_processing/lid.176.bin

@@ -6,8 +6,8 @@ import nltk
 import fasttext
 from copy import copy
 
-nltk.data.path.append('/gpfs/projects/bsc88/tools/simple_cleaner/nltk_data')  # TODO: remove path
-model = fasttext.load_model("/gpfs/projects/bsc88/tools/simple_cleaner/lid.176.bin")  # TODO: remove path
+# nltk.data.path.append('/gpfs/projects/bsc88/tools/simple_cleaner/nltk_data')  # TODO: remove path
+model = fasttext.load_model("lid.176.bin")
 
 
 class NotSameFilepathError(Exception):

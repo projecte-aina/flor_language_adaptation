@@ -16,41 +16,40 @@ class CleaningArguments:
         metadata={"help": "Output path."},
     )
     input_format: str = field(
-        default = "default",
-        metadata = {"help": "Read input in default format, see input_formats.py for more information."},
+        default="default",
+        metadata={"help": "Read input in default format, see input_formats.py for more information."},
     )
     output_format: str = field(
-        default = "onion",
-        metadata = {"help": "Output in onion vertical format"},
+        default="onion",
+        metadata={"help": "Output in onion vertical format"},
     )
     no_filter: bool = field(
-        default = False,
-        metadata = {"help": "Do not apply any filter"},
+        default=False,
+        metadata={"help": "Do not apply any filter"},
     )
     min_sentences_per_document: int = field(
-        default = 10,
-        metadata = {"help": "Minimum number of sentences per document."},
+        default=10,
+        metadata={"help": "Minimum number of sentences per document."},
     )
     max_number_ellipsis_per_document: int = field(
-        default = 1,
-        metadata = {"help": "Filter documents containing more ellipsis."},
+        default=1,
+        metadata={"help": "Filter documents containing more ellipsis."},
     )
     language: str = field(
-        default = None,
-        metadata = {"help": "Filter documents are written in a different language (The language of a document is defined as the most common language of the sentences of all paragraphs)."},
+        default=None,
+        metadata={"help": "Filter documents are written in a different language (The language of a document is defined as the most common language of the sentences of all paragraphs)."},
     )
     min_number_of_words_per_paragraph: int = field(
-        default = 10,
-        metadata = {"help": "Filter paragraphs with less words."},
+        default=10,
+        metadata={"help": "Filter paragraphs with less words."},
     )
     allowed_end_of_sentence: Optional[List[str]] = field(
-        default_factory = lambda: ['!', '.', ':', ';', '?'],
-        metadata = {"help": "Filter sentences that do not end with one of the allowed characters"},
+        default_factory=lambda: ['!', '.', ':', ';', '?'],
+        metadata={"help": "Filter sentences that do not end with one of the allowed characters"},
     )
 
 
-def document_filter(document: Document,
-        cleaning_args: CleaningArguments) -> bool:
+def document_filter(document: Document, cleaning_args: CleaningArguments) -> bool:
     """ Given a Document return a boolean value indicating whether the document pass all filters or not """
     if document.num_sentences < cleaning_args.min_sentences_per_document:
         return False
@@ -60,15 +59,15 @@ def document_filter(document: Document,
         return False
     return True
 
-def paragraph_filter(paragraph: Paragraph,
-        cleaning_args: CleaningArguments) -> bool:
+
+def paragraph_filter(paragraph: Paragraph, cleaning_args: CleaningArguments) -> bool:
     """ """
     if paragraph.num_words < cleaning_args.min_number_of_words_per_paragraph:
         return False
     return True
 
-def sentence_filter(sentence: Sentence,
-        cleaning_args: CleaningArguments) -> bool:
+
+def sentence_filter(sentence: Sentence, cleaning_args: CleaningArguments) -> bool:
     """ """
     for char in sentence:
         if char.isupper(): 
@@ -101,7 +100,7 @@ def main():
                 needs to pass the document filters again.
             """
             if cleaning_args.no_filter:
-                parse_output_format(document)
+                parse_output_format(document, output_file)
                 continue
             # If the input document do not pass the document filters continue to next document).
             if not document_filter(document, cleaning_args):
