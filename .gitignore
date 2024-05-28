@@ -1,6 +1,10 @@
-logs/
+logs/                                                                           
 !.gitignore
 cache/
-evaluation/
+evaluation/cache
+evaluation/results
+evaluation/venv
+evaluation/data_offline
 __pycache__/
 data_processing/lid.176.bin
+
