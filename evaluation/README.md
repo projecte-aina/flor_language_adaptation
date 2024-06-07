@@ -26,7 +26,8 @@ The following table shows the task names, categories and some comments about the
 
 ## Steps to run the evaluation
 1. Use `pip install -r requirements.txt` to install the required libraries.
-2. Unzip `offline_data`.
-3. Create a `results` and a `cache` folder.
-4. For each task you want to evaluate, do `bash execute_task.sh <model> <task> <num_fewshot>`, specifying the model path, task name, and the number of few-shot examples (we used 5-shot for our evaluations).  If you want to send all tasks using sbatch, run the `launch_tasks.sh` script after adding the required sbatch header to `execute_tasks.sh`.
-5. When the evaluation is finished and the results are stored in the `results` folder, run `extract_results.py` to create an Excel sheet summarising the results.
+2. Download data in this folder (flor_language_adaptation/evaluation) from the temporary link: https://github.com/JoanLlop/Data_offline_flor_language_adaptation/raw/main/data_offline.zip
+3. Unzip `data_offline` in the same folder.
+4. Create a `results` and a `cache` folder.
+5. For each task you want to evaluate, do `bash execute_task.sh <model> <task> <num_fewshot>`, specifying the model path, task name, and the number of few-shot examples (we used 5-shot for our evaluations).  If you want to send all tasks using sbatch, run the `launch_tasks.sh` script after adding the required sbatch header to `execute_tasks.sh`.
+6. When the evaluation is finished and the results are stored in the `results` folder, run `extract_results.py` to create an Excel sheet summarising the results.
