@@ -1,6 +1,6 @@
 # FLOR, Language Adaptation
 
-This is the code used to prepare the data, train and evaluate the models in the paper FLOR: On the Effectiveness of Language Adaptation (TODO: add link to the paper once it is published). 
+This is the code used to prepare the data, train and evaluate the models in the paper [FLOR: On the Effectiveness of Language Adaptation](https://aclanthology.org/2024.lrec-main.650/). 
 
 ## Install
 
